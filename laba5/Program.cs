@@ -51,7 +51,11 @@ class Program {
     string wrongWord;
     string correctWord;
     int minimumPartsCount;
+    int wrongWordIndex;
+    int correctWordIndex;
 
+    wrongWordIndex = 0;
+    correctWordIndex = 1;
     minimumPartsCount = 2;
     errorDictionary = new Dictionary<string, string>();
     fileExists = File.Exists(filePath);
@@ -84,8 +88,8 @@ class Program {
 
       if (hasSeparator)
       {
-        wrongWord = lineParts[0];
-        correctWord = lineParts[1];
+        wrongWord = lineParts[wrongWordIndex];
+        correctWord = lineParts[correctWordIndex];
 
         if (errorDictionary.ContainsKey(wrongWord) == false)
         {
